@@ -23,12 +23,7 @@
                     <span class="valign-helper">
                         <img src="{{ asset('images/support center.png') }}" alt="support center" height="60"  alt="Pusat Pengaduan TIK UNSRI">
                 </a>
-               <p>
-                <form method="POST" action="{{ route('signout') }}" class="border-0"> 
-                    @csrf 
-                    <button type="submit">Signout</button> 
-                </form> 
-
+              
                 {{-- <div class="collapse navbar-collapse" id="navbarNav"> 
                 <ul class="navbar-nav ml-auto"> 
                 @auth 
@@ -42,7 +37,25 @@
                  </form> 
                  </li>
                   @endauth --}}
-                </p>
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+                    <div class="collapse navbar-collapse" id="navbarNav"> 
+                        <ul class="navbar-nav ml-5 justify-content-end"> 
+                            @auth 
+                            <li class="nav-item dropdown"> 
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                    {{ Auth::user()->name }} </a> 
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+                                        <a class="dropdown-item" href="{{ route('profile') }}">Profile</a> 
+                                        <form method="POST" action="{{ route('signout') }}"> 
+                                            @csrf 
+                                            <button type="submit" class="dropdown-item">Signout</button> 
+                                        </form> 
+                                    </div> 
+                                </li> 
+                                 @endauth 
+                        </ul> 
+                    </div> 
+                  </nav>
                     </span>
              </div>                    
         </header>

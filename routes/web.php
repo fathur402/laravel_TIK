@@ -63,8 +63,12 @@ Route::patch('/Admin/update/{id}', [TicketController :: class, 'update' ]) -> na
 Route::delete('/Admin/delete/{id}', [TicketController :: class, 'delete' ]) -> name('Admin.delete');
 
 // route untuk profile admin yang terdiri dari menuju halaman profile admin dan sign out
-Route::middleware('auth')->group(function () { 
-    Route::get('/profile', [TicketController::class, 'profile'])->name('profile'); 
-    Route::post('/signout', [TicketController::class, 'signout'])->name('signout'); 
-    }
-);
+Route::middleware('auth')->group(function () {
+    // Route::get('/dashboard', [TicketController::class, 'dashboard'])->name('dashboard');
+    Route::get('/profile', [TicketController::class, 'showProfile'])->name('profile');
+    Route::post('/profile', [TicketController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/profile/password', [TicketController::class, 'updatePassword'])->name('profile.password.update');
+    Route::post('/signout', [TicketController::class, 'signout'])->name('signout');
+    Route::delete('/user/{id}', [TicketController::class, 'destroyUser'])->name('user.destroy');
+});
+

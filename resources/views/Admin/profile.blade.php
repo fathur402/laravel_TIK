@@ -1,23 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <h1>Profile</h1>
-    <div class="card">
-        <div class="card-header">
-            Profile Information
-        </div>
-        <div class="card-body">
-            <p><strong>Name:</strong> {{ $user->name }}</p>
-            <p><strong>Email:</strong> {{ $user->email }}</p>
-            <p><strong>Phone:</strong> {{ $user->phone }}</p>
-            <!-- Tambahkan informasi lainnya jika diperlukan -->
-        </div>
-    </div>
-</div>
-@endsection
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +23,6 @@
                     <span class="valign-helper">
                         <img src="{{ asset('images/support center.png') }}" alt="support center" height="60"  alt="Pusat Pengaduan TIK UNSRI">
                 </a>
-               <p>
-                <form method="POST" action="{{ route('signout') }}" class="border-0"> 
-                    @csrf 
-                    <button type="submit">Signout</button> 
-                </form> 
 
                 {{-- <div class="collapse navbar-collapse" id="navbarNav"> 
                 <ul class="navbar-nav ml-auto"> 
@@ -62,92 +37,86 @@
                  </form> 
                  </li>
                   @endauth --}}
-                </p>
+              
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+                    <div class="collapse navbar-collapse" id="navbarNav"> 
+                        <ul class="navbar-nav ml-auto"> 
+                            @auth 
+                            <div class="nav-item dropdown justify-content-end"> 
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                    {{ Auth::user()->name }} </a> 
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+                                        <a class="dropdown-item" href="{{ route('profile') }}">Profile</a> 
+                                        <form method="POST" action="{{ route('signout') }}"> 
+                                            @csrf 
+                                            <button type="submit" class="dropdown-item">Signout</button> 
+                                        </form> 
+                                    </div> 
+                                </div> 
+                                 @endauth 
+                        </ul> 
+                    </div> 
+                </nav> 
                     </span>
              </div>                    
         </header>
         
-       <div class="d-flex flex-row justify-content-center bg-light border-primary">
-           <div class="col-lg">
-               <div class="card m-2 border-primary">
-                   <div class="card-header text-center">
-                       <h1>Dashboard Admin</h1>
-                       <div class="container">
-                            <div class="card">
-                                <div class="card-header">
-                                  Profile Information
+  
+                    <div class="container-flex"> <h1>Dashboard</h1>
+                        <p>Welcome, {{ $user->name }}!</p>
+                    </div>
+                    <div class="container"> 
+                        <h1>Profile</h1> 
+                        @if (session('success'))
+                        <div class="alert alert-success"> {{ session('success') }}
+                             </div> 
+                        @endif 
+                        <form method="POST" action="{{ route('profile.update') }}">
+                             @csrf 
+                             <div class="form-group"> 
+                                <label for="name">Name</label>
+                                 <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required> 
+                                </div> 
+                                <div class="form-group"> 
+                                    <label for="email">Email</label> 
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required> 
                                 </div>
-                          <div class="card-body">
-                            <p><strong>Name:</strong> {{ $user->name }}</p>
-                            <p><strong>Email:</strong> {{ $user->email }}</p>
-                            <p><strong>Phone:</strong> {{ $user->phone }}</p>
-                            <!-- Tambahkan informasi lainnya jika diperlukan -->
-                         </div>
-                     </div>
-                 </div>
-                   <div class="card-body fw-bold">
-                       @if ($message = Session::get('success'))
-                           <div class="alert alert-success">{{ $message }}</div>
-                       @endif
-                       @if ($errors->any())
-                           <div class="alert alert-danger">
-                               <ul>
-                                   @foreach ($errors->all() as $error)
-                                       <li>{{ $error }}</li>
-                                   @endforeach
-                               </ul>
-                           </div>
-                       @endif
-                       <table class="table">
-                           <thead>
-                               <tr>
-                                    <th>No</th>
-                                   <th>Email</th>
-                                   <th>Nama Lengkap</th>
-                                   <th>No HP/WA</th>
-                                   <th>Topik</th>
-                                   <th>Dibuat Pada : </th>
-                                   <th>Status</th>
-                                   <th>Diubah Pada : </th>
-                               </tr>
-                           </thead>
-                           <tbody>
-                               @foreach ($allTicket as $no=>$singleTicket)
-                                   <tr>
-                                        <td>{{ $no+1 }}</td>
-                                       <td>{{ $singleTicket->email }}</td>
-                                       <td>{{ $singleTicket->name }}</td>
-                                       <td>{{ $singleTicket->phone }}</td>
-                                       <td>{{ $singleTicket->topic }}</td>
-                                       <td>{{ $singleTicket->created_at }}</td>
-                                       <td>{{ $singleTicket->status }}</td>
-                                       <td>{{ $singleTicket->updated_at }}</td>
-                                       <td>
-                                        <a href="{{ route('Admin.edit', $singleTicket->id) }}" class="btn btn-sm btn-warning">edit</a>
-                                        <form action="{{ route('Admin.delete', $singleTicket->id) }}" method="POST" >
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-sm btn-danger">Hapus</button>
-                                        </form>
-                                    </td>
-                                   </tr>
-                               @endforeach
-                           </tbody>
-                       </table>
-                   </div>
-               </div>
-           </div>
-       </div>
+                                 <button type="submit" class="btn btn-primary">Update Profile</button> 
+                                </form> 
+                                <form method="POST" action="{{ route('profile.password.update') }}" class="mt-4"> 
+                                    @csrf 
+                                    <div class="form-group"> 
+                                        <label for="current_password">Current Password</label> 
+                                        <input type="password" class="form-control" id="current_password" name="current_password" required> 
+                                    </div> 
+                                    <div class="form-group">
+                                         <label for="password">New Password</label> 
+                                         <input type="password" class="form-control" id="password" name="password" required> 
+                                        </div> 
+                                        <div class="form-group"> 
+                                            <label for="password_confirmation">Confirm New Password</label> 
+                                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                                         </div>
+                                          <button type="submit" class="btn btn-primary">Update Password</button>
+                                </form> 
+                                <form action="{{ route('user.destroy', $user->id) }}" method="POST" 
+                                    onsubmit="return confirm('Anda yakin ingin menghapus pengguna ini?');"> 
+                                    @csrf
+                                     @method('DELETE') 
+                                     <button type="submit" class="btn btn-danger">Hapus akun</button> 
+                                </form>
+                </div>
+
+
 
 
        
-    </table>
-    </div> 
+ 
         
        
       
             <script src="https://code.jquery.com/jquery-3.5.1.min.js">
-            </script>
+           </script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
             </script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
@@ -160,10 +129,5 @@
                 <p>&copy; 2024 Pusat Pengaduan TIK UNSRI - All rights reserved.</p>
                 <p>powered by osTicket</p> 
             </footer>
-
-
-
-
-
 
 </html>                                                       

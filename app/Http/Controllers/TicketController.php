@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\User;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,7 +20,7 @@ class TicketController extends Controller
         $request->validate([ 
             'name' => 'required|string|max:255', 
             'email' => 'required|string|email|max:255|lowercase|unique:users', 
-            'phone' => 'required|numeric|max:15',
+            'phone' => 'required|numeric',
             'password' => 'required|string|min:8|confirmed', 
         ]); 
         
@@ -32,7 +31,7 @@ class TicketController extends Controller
             'password' => Hash::make($request->password), 
         ]); 
         
-        return redirect()->route('Admin.sign')->with('success', 'Registrasi berhasil. Silakan login.'); 
+        return redirect()->route('Admin.sign')->with('success', 'Registrasi berhasil. Silakan signin.'); 
     }
 
     // Mengakses Akun Signin / melakukan sign in
@@ -49,19 +48,67 @@ class TicketController extends Controller
              'email' => 'The provided credentials do not match our records.', ])->onlyInput('email');
          }
 
-    // Melakukan sign out
-    public function signout(Request $request) {
-         Auth::logout(); 
-         $request->session()->invalidate(); 
-         $request->session()->regenerateToken(); 
-         return redirect('/index')->with( 'Anda telah keluar out'); 
-        }
+   
          
-    // menampilkan laman dashboard admin
-    public function dashboard() { 
+        // menampilkan laman dashboard admin
+        public function dashboard() { 
         $allTicket = Ticket::all();
          return view('Admin.list', compact('allTicket'));
          }
+
+        //  menampilkan halaman profile admin
+        public function showProfile() {
+             return view('Admin.profile', [
+                'user' => Auth::user()
+            ]); 
+        } 
+
+        // melakukan update profile
+        public function updateProfile(Request $request) {
+             $user = Auth::user();
+             $request->validate([
+                 'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email,'.
+                $user->id, 
+            ]); 
+
+            $user->update([ 
+                'name' => $request->name, 
+                'email' => $request->email, 
+            ]); 
+            return redirect()->route('profile')->with('success', 'Profile berhasil diperbarui.'); 
+        } 
+        
+        // melakukan update password
+        public function updatePassword(Request $request) {
+             $user = Auth::user(); 
+             $request->validate([ 
+                'current_password' => 'required', 
+                'password' => 'required|string|min:8|confirmed', 
+            ]); 
+            if (!Hash::check($request->current_password, $user->password)) 
+            { 
+                return back()->withErrors(['current_password' => 'Current password tidak cocok.']); 
+            } 
+            $user->update([ 'password' => Hash::make($request->password), ]); 
+            return redirect()->route('profile')->with('success', 'Password berhasil diperbarui.'); 
+        } 
+        
+        // menghapus atau mendelete user
+        public function destroyUser($id) { 
+            $user = User::findOrFail($id); 
+            $user->delete(); 
+            return redirect()->route('dashboard')->with('success', 'User telah dihapus.');
+        }
+
+        // melakukan signout atau keluar 
+        public function signout(Request $request) {
+             Auth::logout(); 
+             $request->session()->invalidate(); 
+             $request->session()->regenerateToken(); 
+             return redirect('/index')->with('success', 'Anda Telah keluar.'); 
+            } 
+            
 
     // Menampilkan daftar ticket
     // public function show()
@@ -70,11 +117,6 @@ class TicketController extends Controller
     //      dd($allTicket);
     //     return view('Admin.list', compact('ticket'));
     // }
-
-    // menampilkan halaman profile admin
-    public function profile() {
-         return view('profile', ['user' => Auth::user()]); 
-        }
 
     // Menampilkan form Open Ticket
     public function create()
@@ -141,7 +183,7 @@ class TicketController extends Controller
     }
     
 
-    // melakukan delete
+    // melakukan delete tiket
     function delete($id)  {
         $allTicket = Ticket::find($id);
         if ($allTicket) { 
@@ -181,7 +223,7 @@ class TicketController extends Controller
                     ->first();
 
     if (!$ticket) {
-        return response()->json(['success' => false, 'message' => 'Ticket not found'], 404);
+        return response()->json(['success' => false, 'message' => 'Tiket tidak ditemukan'], 404);
     }
 
     return response()->json(['success' => true, 'ticket' => $ticket], 200);
