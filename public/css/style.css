@@ -1,0 +1,403 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    scroll-behavior: smooth; 
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: white;
+    padding: 1em;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 1em;
+}
+
+.title h1 {
+    margin: 0;
+    color : black;
+}
+
+nav {
+    background-color: white;
+    position: fixed;
+    margin-left: 110px;
+    margin-right: 0;
+    z-index: 1000;
+}
+
+
+
+nav ul {
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: auto;
+}
+
+nav ul li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: white;
+}
+nav ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    z-index: 1;
+}
+
+nav ul li .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+nav ul li .dropdown-content a:hover {
+    background-color: white;
+}
+
+nav ul li:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+
+  .image-section1{
+    margin-right: 200px;
+    padding-right: 50px;
+    justify-content: left;
+}
+
+
+main1 .content{
+    padding-top: 60px;
+    text-align: center;
+    z-index: 1;
+    display:inline-flex;
+}
+main1 .image-section{
+    margin-top: 60px;
+    margin-left: 360px;
+    width: 300px;
+    justify-content: center;
+}
+
+main1 .text-section{
+    margin-right: 300px;
+
+}
+main1 .text-section a{
+    text-align:left;
+}
+main1 h4 {
+    text-align: left;
+    font-size: 27px;
+}
+
+main1 h1 {
+    text-align: left;
+    font-size: 45px;
+    padding-bottom: 0;
+}
+
+.contact-button-1 {
+    background-color: #007bff;
+    color: white;
+    border-radius: 20px;
+    border : none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-button-1:hover {
+    background-color: #0056b3;
+}
+
+main2 p {
+    padding-bottom: 20px;
+}
+main3 p {
+    padding-bottom: 20px;
+}
+main4 p {
+    padding-bottom: 20px;
+}
+
+main5 .container{
+    margin-left: 110px;
+    margin-right: 110px;
+}
+
+.slide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+  }
+  
+  .slide-container .slide {
+    display: none;
+    width: 100%;
+  }
+  
+  .slide-container .slide.fade {
+    animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+  
+  .slide-container .slide img {
+    width: 100%;
+  }
+
+.slide-container .prev,
+.slide-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 1s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: auto;
+}
+
+.slide-container .prev:hover,
+.slide-container .next:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.slide-container .prev {
+  left: 2px;
+}
+
+.slide-container .next {
+  right: 2px;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.dots-container .dot {
+  cursor: pointer;
+  margin: 5px;
+  width: 20px;
+  height: 20px;
+  color: #333;
+  border-radius: 50%;
+  background-color: #dfd6ce;
+  padding: 0;
+}
+
+.dots-container .dot.active {
+  border: 2px solid rgb(46, 166, 206);
+}
+
+main6 {
+    background: rgb(208, 172, 241);
+}
+main6 .container{
+    display:grid;
+}
+
+main6 .cardano{
+    box-shadow: 10px 5px 5px 0px;
+    margin:50px;
+    display: flex;
+    background: white;
+}
+
+
+main6 .cardano:hover{
+    background: aqua;
+}
+
+
+main6 .card-body{
+    overflow: hidden;
+    margin: 20px;
+}
+
+main6 .row-1{
+    padding-left: 0;
+    margin-left: 0;
+    display:grid;
+    grid-template-columns: repeat(3,2fr);
+}
+
+main7 .container{
+    display: flex;
+ }
+
+ main7 p {
+    padding-bottom: 20px;
+}
+
+main8 .container{
+   display: flex;
+}
+
+main8 p {
+    padding-bottom: 20px;
+}
+
+main9 .container {
+    display: grid;
+}
+
+
+main9 .container .menu-content{
+    text-align:center;
+}
+main9 .container.card{
+    display: flex;
+}
+
+main9 .row-2{
+    position: inherit;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+}
+
+main9 .card-2{
+    margin:20px;
+    display: flex;
+    width: 33rem;
+    padding-right: 0;
+}
+
+
+main10 .container{
+    display: grid;
+}
+
+main10 .container .menu-content{
+    text-align: center;
+}
+
+main10 form{
+    justify-content: center;
+    margin-left: 150px;
+    position: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    box-sizing: content-box;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin: 110px;
+    margin-right: 110px; 
+}
+
+.container img{
+    width :500px;
+    height: 4000x;
+    display: flex;
+    align-items: center;
+    margin-right: 50px; 
+}
+
+
+
+.content h2 {
+    color: #333;
+}
+
+.contact-button {
+    background-color: #007bff;
+    color: white;
+    border-radius: 20px;
+    border : none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-button:hover {
+    background-color: #0056b3;
+}
+
+
+.slide-container{
+    display: flex;
+}
+
+.wrapper {
+
+    width: 1000px;
+    height: 700px;
+    margin: auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+  
+.slider {
+    align-items: center;
+    margin: 110px;
+    margin-right: 110px; 
+}
+
+
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    width: 100%;
+    display:flex;
+}
+
+footer .container .row{
+    display:flex;
+    margin-left: 20px;
+    margin-left: 20px;
+    padding: 10px;
+}
