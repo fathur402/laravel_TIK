@@ -41,8 +41,7 @@ Route::get('/sign', function() { return view('Admin.sign'); })->name('Admin.sign
 // Route untuk proses signin 
 Route::post('/signin', [TicketController::class, 'signin'])->name('signin'); 
 
-// Route untuk menampilkan dashboard admin
- Route::get('/dashboard', [TicketController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
+
  // route untuk laman daftar/list ticket
 //  Route::get('/tickets',  [TicketController::class, 'show'])->name('Admin.list');
  // Route::get('/ticket/{ticket}', [TicketController::class, 'show'])->name('TIK.show');
@@ -59,16 +58,17 @@ Route::post('/find-ticket', [TicketController::class, 'find'])->name('TIK.find')
 Route::get('/Admin/edit/{id}', [TicketController :: class, 'edit' ]) -> name('Admin.edit');
 Route::patch('/Admin/update/{id}', [TicketController :: class, 'update' ]) -> name('Admin.update');
 
-// route untuk delete
+// route untuk delete ticket
 Route::delete('/Admin/delete/{id}', [TicketController :: class, 'delete' ]) -> name('Admin.delete');
 
-// route untuk profile admin yang terdiri dari menuju halaman profile admin dan sign out
+// route middleware untuk profile admin yang terdiri dari dropdown menuju halaman profile admin dan sign out, serta halaman profile admin
 Route::middleware('auth')->group(function () {
-    // Route::get('/dashboard', [TicketController::class, 'dashboard'])->name('dashboard');
-    Route::get('/profile', [TicketController::class, 'showProfile'])->name('profile');
-    Route::post('/profile', [TicketController::class, 'updateProfile'])->name('profile.update');
-    Route::post('/profile/password', [TicketController::class, 'updatePassword'])->name('profile.password.update');
-    Route::post('/signout', [TicketController::class, 'signout'])->name('signout');
+    Route::get('/dashboard', [TicketController::class, 'dashboard'])->name('dashboard');
+    Route::get('/profile/{id}', [TicketController::class, 'showProfile'])->name('profile');
+    Route::post('/profile/{id}', [TicketController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/profile/{id}/password', [TicketController::class, 'updatePassword'])->name('profile.password.update');
     Route::delete('/user/{id}', [TicketController::class, 'destroyUser'])->name('user.destroy');
+    Route::post('/signout', [TicketController::class, 'signout'])->name('signout');
 });
+
 

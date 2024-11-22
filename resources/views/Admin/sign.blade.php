@@ -10,81 +10,8 @@
  <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
- {{-- javascript --}}
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </head>
-
-{{-- <body>
-   
-      <div class="container" id="container">
-            <div class="header" id="header">
-                <div class="pull-right flush-right">
-                    <p>
-                                             Guest User |                     <a href="/login.php">Sign In</a>
-                    </p>
-                </div>
-                <a class="pull-left" id="logo" href="/index.php"
-                    title="Support Center">
-                <span class="valign-helper"></span>
-                    <img src="{{ asset('images/support center.png') }}" alt="support center" height="60"  alt="Pusat Pengaduan TIK UNSRI">
-                        </a>
-                </div>
-            <div class="clear">
-                <ul id="nav" class="flush-left">
-                    <li><a class="active home" href="/index.php" >Support Center Home</a></li>
-                    <li><a class="new" href="/open.php">Open a New Ticket</a></li>
-                    <li><a class="status" href="/view.php">Check Ticket Status</a></li>
-                </ul>
-
-            </div>
-
-            <div class="open" id="content">
-           
-            <h1>Sign in to Pusat Pengaduan TIK UNSRI</h1>
-                <p>To better serve you, we encourage our Clients to register for an account.</p>
-                <form action="login.php" method="post" id="clientLogin">
-                    <input type="hidden" name="__CSRFToken__" value="9ee4a80495ec93a0773277ad6a5cfca6f8ddb546" /><div style="display:table-row">
-                    <div class="login-box">
-                    <strong></strong>
-                    <div>
-                        <input id="username" placeholder="Email or Username" type="text" name="luser" size="30" value="" class="nowarn">
-                    </div>
-                    <div>
-                        <input id="passwd" placeholder="Password" type="password" name="lpasswd" size="30" value="" class="nowarn"></td>
-                    </div>
-                    <p>
-                        <input class="btn" type="submit" value="Sign In">
-                    </p>
-                    </div>
-                    <div style="display:table-cell;padding: 15px;vertical-align:top">
-                    <div style="margin-bottom: 5px">
-                    Not yet registered? <a href="account.php?do=create">Create an account</a>
-                    </div>
-                    <div>
-                    <b>I'm an agent</b> —
-                    <a href="/scp/">sign in here</a>
-                    </div>
-                    </div>
-                </div>
-                </form>
-                <br>
-                <p>
-                If this is your first time contacting us or you've lost the ticket number, please <a href="open.php"> open a new ticket </a></p>
-                        </div>
-                    </div>
-    <footer>
-        <div  id="footer">
-            <p>Copyright &copy; 2024 Pusat Pengaduan TIK UNSRI - All rights reserved.</p>
-                <a id="poweredBy" href="https://osticket.com" target="_blank">Helpdesk software - powered by osTicket</a>
-        </div>
-        <br>
-        <div id="overlay"></div>
-    <div id="loading">
-        <h4>Please Wait!</h4>
-        <p>Please wait... it will take a second!</p>
-    </div>
-    </footer> --}}
 
     <body>
         <div class="container-flex mt-3"> 
@@ -143,14 +70,16 @@
                         If this is your first time contacting us or you've lost the ticket number, please    <a href="" class="text-center"> open a new ticket </a>
                     </p>
                 </div>
-
                      </div> 
-                     <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+
+
+                    <!-- Tambahkan JS Bootstrap Bundle (termasuk Popper.js) --> 
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+                    </script> 
+                    <!-- Tambahkan JS jQuery --> 
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js">
                     </script>
-                     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
-                    </script>
-                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
-                    </script>
+
                      <script src="scripts.js">
                     </script> 
                 

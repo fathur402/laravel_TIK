@@ -8,20 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     use HasFactory;
-    protected $table    = 'tickets';
+    protected $table = 'tickets';
 
-    protected $fillable = [ 
-        'email', 
-        'name', 
-        'phone', 
-        'topic', 
+    protected $fillable = [
+        'email',
+        'name',
+        'phone',
+        'topic',
         'status',
-        'nim_nip', 
-        'faculty', 
-        'file_upload', 
-        'confirmation_email', 
-        'request_detail' 
+        'user_id',
+        'nim_nip',
+        'faculty',
+        'file_upload',
+        'confirmation_email',
+        'request_detail'
     ];
 
-    protected $hidden = [ 'password', 'remember_token', ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

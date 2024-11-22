@@ -12,26 +12,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
    
-    {{-- javascript --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
-</head>
+ </head>
     <body>
         <div class="container-flex mt-3"> 
             <header class="text-center"> 
                 <div class="header" id="header">
-                    <a  id="logo" href="/index.php"
-                        title="Support Center">
+                    <a  id="logo" href="{{ route('TIK.index') }}" title="Support Center">
                     <span class="valign-helper">
                         <img src="{{ asset('images/support center.png') }}" alt="support center" height="60"  alt="Pusat Pengaduan TIK UNSRI">
                             </a>
 
-                            <form method="POST" action="{{ route('signout') }}"> 
-                                @csrf 
-                                <button type="submit">Signout</button> 
-                            </form> 
+                            <div class="dropdown-container"> 
+                                @auth
+                                 <div class="dropdown">
+                                     <a class="btn text-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                        {{ $user->name }} </a>
+                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink"> 
+                                            <a class="dropdown-item" href="{{ route('profile',['id' => $user->id]) }}">Profile</a>
+                                             <form method="POST" action="{{ route('signout') }}"> 
+                                                @csrf 
+                                                <button type="submit" class="dropdown-item">Signout</button> 
+                                            </form> 
+                                        </div> 
+                                    </div>
+                                     @endauth 
+                                    </div>
                          
                     </span>
-                </div>      s
+                </div>      
             </header>
     
           
@@ -61,25 +69,23 @@
                                             </div>
                                         @endif
 
+
                                         <form action="{{ route('Admin.update', $ticket->id) }}" method="POST">
                                             @csrf
                                             @method('PATCH')
-                                            
+                                            <input type="hidden" name="user_id" value="{{ $currentUserId }}">
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email Address :</label>
                                                 <input type="email" class="form-control border-dark" id="email" name="email" value="{{ $ticket->email }}" required>
                                             </div>
-                                            
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Nama Lengkap :</label>
                                                 <input type="text" class="form-control border-dark" id="name" name="name" value="{{ $ticket->name }}" required>
                                             </div>
-                                            
                                             <div class="mb-3">
                                                 <label for="phone" class="form-label">Phone Number / WA :</label>
                                                 <input type="number" class="form-control border-dark" id="phone" name="phone" value="{{ $ticket->phone }}" required>
                                             </div>
-                                            
                                             <div class="mb-3">
                                                 <label for="topic" class="form-label">Help Topic :</label>
                                                 <select class="form-select border-dark" id="topic" name="topic" required>
@@ -89,7 +95,6 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-
                                             <div class="mb-3">
                                                 <label for="status" class="form-label">Status :</label>
                                                 <select class="form-select border-dark" id="status" name="status" required>
@@ -98,11 +103,10 @@
                                                     <option value="selesai" {{ $ticket->status == 'selesai' ? 'selected' : '' }}>Selesai</option>
                                                 </select>
                                             </div>
-                                            
                                             <button type="submit" class="btn btn-primary">Update</button>
                                         </form>
+                                        
                                     </div>
-
 
 
                                         {{-- 
@@ -219,21 +223,23 @@
                     </div> 
                 </div>
             </div> 
-            
-    
                  </div> 
-                 <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+
+                 <!-- Tambahkan JS Bootstrap Bundle (termasuk Popper.js) --> 
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+                </script> 
+                <!-- Tambahkan JS jQuery --> 
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js">
                 </script>
-                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
-                </script>
-                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
-                </script>
+
                  <script src="scripts.js">
                 </script> 
             
     </body>
-    <footer class="text-center mt-3"> 
-        <p>&copy; 2024 Pusat Pengaduan TIK UNSRI - All rights reserved.</p>
-        <p>powered by osTicket</p> 
-    </footer>
+
+        <footer class="text-center mt-3"> 
+            <p>&copy; 2024 Pusat Pengaduan TIK UNSRI - All rights reserved.</p>
+            <p>powered by osTicket</p> 
+        </footer>
+
 </html>

@@ -236,17 +236,31 @@ nav ul li:hover .dropdown-content {
 }
 
 
-
-.cardano:hover{
-    box-shadow: 5px 5px 5px 5px;
-
-    background: linear-gradient(#89c2ff,#0056b3,#dfeeff);
+/* Menjadikan card transparan */
+.card {
+    color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0.33); 
+    border: none; /
 }
+
+/* Efek hover untuk card */
+.card:hover {
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(#89c2ff, #0056b3, #dfeeff);
+    transition: all 0.3s ease-in-out; 
+}
+
+
+.padding-top{
+    padding-top: 200px;
+}
+
 
 .bg {
     background-image:url('/images/Kabel Fiber.jfif');
     background-repeat: no-repeat;
     background-size: cover;
+    height: 800px;
 }
 
 .bg h1{

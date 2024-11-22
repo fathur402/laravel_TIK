@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('email'); 
-            $table->string('name'); 
+            $table->string('email');
+            $table->string('name');
             $table->bigInteger('phone');
-            // $table->string('phone'); 
             $table->string('topic');
             $table->string('status')->default('belum diproses');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

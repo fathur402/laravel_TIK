@@ -267,7 +267,7 @@
 
             <section class="section-gap"></section>
 
-                 {{-- Start Carusel Area  --}}
+                 {{-- Start Carousel Area  --}}
             <section class="about-area" id="galeri">
              <div class="whole-wrap">
                 <div class="container">
@@ -405,106 +405,118 @@
                     <div class="container">
                         <div class="container-fluid">
                             <div class="row d-flex justify-content-end align-items-center">
-                        
-					<div class="row d-flex justify-content-center">
-						<div class="col-md-8 pb-40 header-text">
+					              <div class="row d-flex justify-content-center">
+					        	<div class="col-md-8 pb-40 header-text">
 							<h1>Layanan Unit Pelaksana Teknis Teknologi Informasi dan Komunikasi</h1>
 						</div>
 					</div>
-					<div class="row">
-            
-					   {{-- Start email Area --}}
-						<div class="col-lg-4 col-md-6 cardano">
-							<div class="single-service">
-								<h4><span class="lnr lnr-user"></span>Email Bagi Civitas UNSRI</h4>
-								<p align="justify">
-									Email resmi UNSRI dengan alamat @unsri.ac.id disediakan bagi para dosen, staf, fakultas, jurusan, unit kerja dan lembaga resmi kampus lainnya. 
-									Setiap mahasiswa UNSRI juga bisa menggunakan layanan email untuk mahasiswa. Akun email mahasiswa berupa @student.unsri.ac.id. selain email, 
-									unsri juga mefasilitasi email instansinya dengan google drive unlimited secara gratis.
+					<div class="container">
+            <div class="row">
+                {{-- Start email Area --}}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><span class="lnr lnr-user"></span> Email Bagi Civitas UNSRI</h4>
+                            <p class="card-text" align="justify">
+                                Email resmi UNSRI dengan alamat @unsri.ac.id disediakan bagi para dosen, staf, fakultas, jurusan, unit kerja dan lembaga resmi kampus lainnya.
+                                Setiap mahasiswa UNSRI juga bisa menggunakan layanan email untuk mahasiswa. Akun email mahasiswa berupa @student.unsri.ac.id. Selain email,
+                                UNSRI juga mefasilitasi email instansinya dengan google drive unlimited secara gratis.
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ route('TIK.index') }}" target="_blank" class="btn btn-primary text-uppercase">Layanan Email Kami</a>
+                        </div>
+                    </div>
+                </div>
+                {{-- End email Area --}}
+                
+                {{-- Start VPN Area --}}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><span class="lnr lnr-license"></span> VPN UNSRI</h4>
+                            <p class="card-text" align="justify">
+                                UPT TIK Universitas Sriwijaya menyediakan layanan VPN bagi sivitas akademika UNSRI untuk dapat menggunakan beberapa aplikasi yang hanya diijinkan
+                                diakses di dalam jaringan internal kampus. Layanan VPN yang tersedia di UNSRI adalah PPTP, L2TP dan OPEN VPN yang tersedia untuk Windows, Android, Mac dan iOS.
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ route('TIK.index') }}" target="_blank" class="btn btn-primary text-uppercase">Layanan VPN Kami</a>
+                        </div>
+                    </div>
+                </div>
+                {{-- End VPN Area --}}
+                
+                {{-- Start internet Area --}}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><span class="lnr lnr-license"></span> Akses Internet</h4>
+                            <p class="card-text" align="justify">
+                                UPT TIK Universitas Sriwijaya menyediakan layanan internet di seluruh fakultas/jurusan melalui jaringan WiFi yang tersebar di Universitas Sriwijaya, baik di Kampus Indralaya, Palembang, dan Kampus-Kampus Satelit Unsri.
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ route('TIK.index') }}" target="_blank" class="btn btn-primary text-uppercase">Layanan Akses Internet Kami</a>
+                        </div>
+                    </div>
+                </div>
+                {{-- End internet Area --}}
+                
+                {{-- Start hosting Area --}}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><span class="lnr lnr-phone"></span> Data Center dan Web Hosting</h4>
+                            <p class="card-text" align="justify">
+                                Universitas Sriwijaya menyediakan layanan data center untuk fakultas, jurusan, lembaga, dan unit kerja resmi agar dapat menitipkan server mereka ke data center unsri.
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ route('TIK.index') }}" target="_blank" class="btn btn-primary text-uppercase">Layanan Hosting Kami</a>
+                        </div>
+                    </div>
+                </div>
+                {{-- End hosting Area --}}
+                
+                {{-- Start data dan pemprograman Area --}}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><span class="lnr lnr-bubble"></span> Pendataan dan Pemprograman</h4>
+                            <p class="card-text" align="justify">
+                                UPT TIK Universitas Sriwijaya juga melayani sivitas (fakultas, lembaga, dan Unit Kerja) di unsri dalam hal pendataan dan pemprograman.
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ route('TIK.index') }}" target="_blank" class="btn btn-primary text-uppercase">Layanan Pendataan dan Pemprograman Kami</a>
+                        </div>
+                    </div>
+                </div>
+                {{-- End data dan pemprograman Area --}}
+                
+                {{-- Start multimedia Area --}}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><span class="lnr lnr-bubble"></span> Multimedia</h4>
+                            <p class="card-text" align="justify">
+                                UPT TIK Universitas Sriwijaya melayani sivitas (fakultas, lembaga, dan Unit Kerja) di UNSRI dalam hal Multimedia seperti pelaksanaan broadcasting, pelaksanaan video conference, pembuatan konten multimedia, pembuatan konten desain grafis.
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ route('TIK.index') }}" target="_blank" class="btn btn-primary text-uppercase">Layanan Multimedia Kami</a>
+                        </div>
+                    </div>
+                </div>
+                {{-- End multimedia Area --}}
+            </div>    
 
-								</p>
-								<a href="{{ route('TIK.index') }}" target="_blank" class="primary-btn header-btn text-uppercase">Layanan Email Kami</a>								
-							</div>
-						</div>
-					   {{-- End email Area --}}
-
-					   {{-- Start VPN Area --}}
-						<div class="col-lg-4 col-md-6 cardano">
-							<div class="single-service">
-								<h4><span class="lnr lnr-license"></span>VPN UNSRI</h4>
-								<p align="justify">
-								UPT TIK Universitas Sriwijaya menyediakan layanan VPN bagi sivitas akademika UNSRI untuk dapat menggunakan beberapa aplikasi yang hanya diijinkan 
-								diakses di dalam jaringan internal kampus. Selain untuk mengakses aplikasi yang hanya diijinkan didalam jaringan internal kampus VPN UNSRI juga 
-								dapat digunakan sicitas UNSRI untuk mengakses Jurnal - Jurnal Berbayar Langganan Perpustakaan UNSRI. Layanan VPN yang tersedia di UNSRI adalah PPTP, 
-								L2TP dan OPEN VPN yang tersedia untuk Windows, Android, Mac dan iOS. 	
-								</p> 
-                <span class="d-block">
-                  <a href="{{ route('TIK.index') }}" target="_blank" class="primary-btn header-btn text-uppercase" > Layanan VPN Kami 	</a>	
-                </span>               	
-							</div>
-						</div>
-					   {{-- end VPN Area --}}
-                    
-					   {{-- Start internet Area --}}
-						<div class="col-lg-4 col-md-6 cardano">
-							<div class="single-service">
-								<h4><span class="lnr lnr-license"></span>Akses Internet</h4>
-								<p align="justify">
-									UPT TIK Universitas Sriwijaya menyediakan layanan internet yang ada di seluruh fakultas/jurusan melalui jaringan WiFi yang tersebar di Universitas 
-									Sriwijaya baik di Kampus Indralaya, Palembang, dan Kampus-Kampus Satelit Unsri (FK Madang, Pascasarjana Padang Selasa, FP kampus Padang Selasa, 
-									FKIP Kampus OGAN, FKIP Kampus KM.5) di Palembang.
-								</p>
-                                <span class="d-block">
-								<a href="{{ route('TIK.index') }}" target="_blank" class="primary-btn header-btn text-uppercase">Layanan Akses Internet Kami</a>							
-                                </span>
-							</div>
-						</div>
-					   {{-- end internet Area --}}
-						
-					   {{-- Start hotsing Area --}}
-						<div class="col-lg-4 col-md-6 cardano">
-							<div class="single-service">
-								<h4><span class="lnr lnr-phone"></span>Data Center dan Web Hosting</h4>
-								<p align="justify">
-									Universitas Sriwijaya menyediakan layanan data center untuk fakultas, jurusan, lembaga, dan unit kerja resmi agar dapat menitipkan server mereka ke 
-									data center unsri. <br>
-								    Layanan web hosting disediakan bagi fakultas, jurusan, lembaga, unit kerja, dosen, ormawa resmi kampus yang mempublikasikan 
-									informasinya/penelitian/ejournal masing - masing ke internet dengan domail (namadomain).unsri.ac.id. Unsri menyediakan server virtual server 
-									dengan spesifikasi 4 Core Prosesor, 8GB Ram, dan 50GB HDD.
-								</p>
-								<a href="{{ route('TIK.index') }}" target="_blank" class="primary-btn header-btn text-uppercase">Layanan Hosting Kami</a>					
-							</div>
-						</div>
-					   {{-- end hotsing Area --}}
-
-					   {{-- Start data dan pemprograman Area --}}
-						<div class="col-lg-4 col-md-6 cardano">
-							<div class="single-service">
-								<h4><span class="lnr lnr-bubble"></span>Pendataan dan Pemprograman</h4>
-								<p align="justify">
-									UPT TIK Universitas Sriwijaya juga melayani sivitas (fakultas, lembaga, dan Unit Kerja) di unsri dalam hal pendataan dan pemprograman.
-								</p>
-								<a href="{{ route('TIK.index') }}" target="_blank" class="primary-btn header-btn text-uppercase">Layanan Pendataan dan Pemprograman Kami</a>								
-							</div>
-						</div>
-					   {{-- End data dan pemprograman Area --}}
-						
-					   {{-- Start multimedia Area --}}
-						<div class="col-lg-4 col-md-6 cardano">
-							<div class="single-service">
-								<h4><span class="lnr lnr-bubble"></span>Multimedia</h4>
-								<p align="justify">
-									UPT TIK Universitas Sriwijaya melayani sivitas (fakultas, lembaga, dan Unit Kerja) di unsri dalam hal Multimedia seperti pelaksanaan broadcasting, 
-									pelaksanaan video conference, pembuatan komten multimedia, pembuatan konten desain grafis.
-								</p>
-								<a href="{{ route('TIK.index') }}" target="_blank" class="primary-btn header-btn text-uppercase">Layanan Multimedia Kami</a>								
-							</div>
-						</div>
-					   {{-- End multimedia Area --}}
-				  
+                  </div>
+                 </div>   
               </div>
-            </div>   
             </div>
+      
 			</section>
 		   {{-- End service Area --}}
 
@@ -517,10 +529,10 @@
 				<div class="container">
 					<div class="container-fluid">
 						<div class="row d-flex justify-content-end align-items-center">
-							<div class="col-lg-6 col-md-12 info-left no-padding">
+							<div class="col-lg-6 col-md-12 info-left padding-top">
                      <img class="img-fluid" src="{{ asset('images/struktur organisasi.jpg') }}" alt="">
 							</div>
-							<div class="col-lg-6 info-right no-padding">
+							<div class="col-lg-6 info-right padding-top">
 								<h1>Struktur Organisasi</h1>
 								<p align="justify">Berdasarkan Peraturan Menteri Riset, Teknologi dan Pendidikan Tinggi Nomor 12 Tahun 2015 tentang Organisasi dan Tata Kerja Universitas Sriwijaya, semula UPT Pusat Komputer (UPT Puskom) Universitas Sriwijaya  berubah menjadi UPT Teknologi Informasi dan Komunikasi (UPT TIK) Universitas Sriwijaya, sebagaimana yang tertera pada Pada pasal 114 struktur organisasi UPT TIK, terdiri dari: Kepala, Subagian Tata Usaha, Kelompok Jabatan Fungsional</p>	
                   
@@ -631,7 +643,7 @@
                  {{-- start berita Area		 --}}
                 <section class="contact-area section-gap" id="berita">
                     <div class="container">
-                        <div class="row d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center ">
                             <div class="menu-content pb-30 col-lg-8">
                                 <div class="title text-center">
                                     <h1 class="mb-10">BERITA TERKINI</h1>
@@ -651,9 +663,8 @@
                                 <p class="card-text" align="justify">sedang dilakukan perbaikan jaringan distribusi dari NOC (Network Operation Center) Universitas Sriwijaya yang bertempat di Gedung Student Center menuju ke wilayah segmentasi 9 Asrama Musi Rawas, Asrama OKU, dan Asrama OKI. Hal ini berdampak ke 3 asrama tersebut dikarenakan akan terjadi pemutusan koneksi sementara sampai pekerjaan perbaikan selesai.</p>
                                 <br>
                                 <p class="card-text">Mohon maaf untuk ketidaknyamannya</p>
-                                {{--  --}}
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            a
+                           
+                            
                             </div>
                             </div>
                         </div>
@@ -668,9 +679,7 @@
                                 <p class="card-text" align="justify">sedang dilakukan perbaikan pada setiap wallmount jaringan level akses disetiap gedung dilingkungan Universitas Sriwijaya Kampus Palembang (Bukit Besar dan Extrasite(pasca sarjana, fakultas pertanian pada selasa, fkip ogan, fkip pgsd km.5, dan fk madang)) dan Kampus Indralaya. hal ini mengakibatkan putusnya koneksi disetiap gedung, dikarenakan adanya proses perawatan perangkat jaringan selama 15 s/d 30 menit.</p>
                                 <br>
                                 <p class="card-text">Mohon maaf untuk ketidaknyamannya</p>
-                                {{--  --}}
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            a
+                            
                                 </div>
                             </div>
                         </div>
@@ -688,7 +697,7 @@
                         <div class="row d-flex justify-content-center">
                             <div class="menu-content pb-30 col-lg-8">
                                 <div class="title text-center">
-                                    <h1 class="mb-10">Hubungi Kami</h1>
+                                    <h1 class="padding-top">Hubungi Kami</h1>
                                     <p>Kami Selalu Berusaha untuk Selalu Menjadi yang Lebih Baik. Kritik, Saran, dan Masukan Anda Sangat Berpengaruh untuk Kami</p>
                                 </div>
                             </div>
@@ -714,11 +723,11 @@
                 </section>
                 {{-- end contact Area --}}
     
-                <section class="section-gap"></section>
+                <section class="section-gap padding-top"></section>
                 <hr>
                  {{-- start footer Area		 --}}
-                <footer class="footer-area section-gap" id="contact">
-                    <div class="container">
+                <footer class="footer-area section-gap " id="contact">
+                    <div class="container ">
                         <div class="row">
                             <div class="col-lg-3  col-md-6 col-sm-6">
                                 <div class="single-footer-widget">
@@ -726,7 +735,9 @@
                                     <p style="color:white">
                                         Jln. Srijaya Negara, Kantor Pusat Administrasi Universitas Sriwijaya Kampus Palembang Lantai 3, Ruang Network Operation Center (NOC) Unit Pelaksana Teknis Teknologi Informasi dan Komunikasi (UPT-TIK) Ilir Barat I, Kota Palembang, 30139
                                     </p>
-                                    <a href="https://www.google.com/maps/place/Kantor+Pusat+Administrasi+Universitas+Sriwijaya+Kampus+Palembang/@-2.985431,104.7331093,18.75z/data=!4m5!3m4!1s0x2e3b75ed9c70e2fd:0xf9bb98f388ac9168!8m2!3d-2.9855561!4d104.732011" target="_blank" class="primary-btn header-btn text-uppercase">HQ Palembang</a>
+                                    <div class="card-footer text-center">                                      
+                                      <a href="https://www.google.com/maps/place/Kantor+Pusat+Administrasi+Universitas+Sriwijaya+Kampus+Palembang/@-2.985431,104.7331093,18.75z/data=!4m5!3m4!1s0x2e3b75ed9c70e2fd:0xf9bb98f388ac9168!8m2!3d-2.9855561!4d104.732011" target="_blank" class="btn btn-primary text-uppercase">HQ Palembang</a>
+                                  </div>
                                 </div>
                             </div>
                             <div class="col-lg-3  col-md-6 col-sm-6">
@@ -740,7 +751,9 @@
                                     <p style="color:white">
                                         Jl. Raya Palembang - Prabumulih Km. 32 Indralaya, Universitas SRiwijaya, Gedung Student Center Lantai 4, Ogan Ilir, Sumatera Selatan 30662
                                     </p>
-                                    <a href="https://www.google.com/maps/place/Student+Center+of+Sriwijaya+University/@-3.219743,104.6559505,17z/data=!4m12!1m6!3m5!1s0x2e3bbdf41ccc272f:0x44c587e8be864639!2sMain+Campus+Unsri+Inderalaya!8m2!3d-3.2154422!4d104.6486978!3m4!1s0x2e3b75f3499dc461:0x48f97a46a3ccff93!8m2!3d-3.218925!4d104.6595501" target="_blank" class="primary-btn header-btn text-uppercase">HQ Indralaya</a>
+                                    <div class="card-footer text-center">
+                                      <a href="https://www.google.com/maps/place/Student+Center+of+Sriwijaya+University/@-3.219743,104.6559505,17z/data=!4m12!1m6!3m5!1s0x2e3bbdf41ccc272f:0x44c587e8be864639!2sMain+Campus+Unsri+Inderalaya!8m2!3d-3.2154422!4d104.6486978!3m4!1s0x2e3b75f3499dc461:0x48f97a46a3ccff93!8m2!3d-3.218925!4d104.6595501" target="_blank" class="btn btn-primary text-uppercase">HQ Indralaya</a>
+                                  </div>
                                 </div>
                             </div>
                             <div class="col-lg-3  col-md-6 col-sm-6">
@@ -753,6 +766,14 @@
                     </div>
                 </footer>	
                  {{-- End footer Area --}}
+
+                <!-- Tambahkan JS Bootstrap Bundle (termasuk Popper.js) --> 
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+                </script> 
+                <!-- Tambahkan JS jQuery --> 
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+                </script>
+
 
                 <script src="{{ asset('js/slider.js') }}"></script>	
 

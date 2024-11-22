@@ -11,10 +11,6 @@
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-   
-    {{-- javascript --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-   
 </head>
 
     <body>
@@ -95,44 +91,59 @@
                             </div> 
                         </div> 
                     </div> 
-                    <script> document.getElementById('check-ticket-form').addEventListener('submit', 
-                    function(event) { event.preventDefault(); 
-                        let formData = new FormData(this); 
-                        fetch('{{ route("TIK.find") }}', 
-                        { method: 'POST', headers: { 'X-CSRF-TOKEN': formData.get('_token'), 'Accept': 'application/json', }, body: formData }) 
-                        .then(response => response.json()) .then(data => { 
-                            if (data.success) { 
-                                document.querySelector('#ticketModal .modal-body').innerHTML = ` 
-                                <p><strong>Email:</strong> ${data.ticket.email}</p> 
-                                <p><strong>Nama:</strong>  ${data.ticket.name}</p>
-                                <p><strong>No HP/WA:</strong>  ${data.ticket.phone}</p> 
-                                <p><strong>Topik:</strong>  ${data.ticket.topic}</p> 
-                                <p><strong>Status:</strong>  ${data.ticket.status}</p> 
-                                <p><strong>Tanggal Dibuat:</strong> ${data.ticket.created_at}</p> `; 
-                                    var ticketModal = new bootstrap.Modal(document.getElementById('ticketModal')); 
-                                        ticketModal.show(); } 
-                                        else { alert('Ticket not found'); 
-                                                } 
-                                            })
-                                             .catch(error => { console.error('Error:', error);
-                                              }); 
-                                            }); 
+
+                    <!-- Tambahkan JavaScript di sini -->
+                    <script>
+                        document.getElementById('check-ticket-form').addEventListener('submit', function(event) {
+                            event.preventDefault();
+                            let formData = new FormData(this);
+                            fetch('{{ route("TIK.find") }}', {
+                                method: 'POST',
+                                headers: {
+                                    'X-CSRF-TOKEN': formData.get('_token'),
+                                    'Accept': 'application/json',
+                                },
+                                body: formData
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    document.querySelector('#ticketModal .modal-body').innerHTML = `
+                                        <p><strong>Email:</strong> ${data.ticket.email}</p>
+                                        <p><strong>Nama:</strong> ${data.ticket.name}</p>
+                                        <p><strong>No HP/WA:</strong> ${data.ticket.phone}</p>
+                                        <p><strong>Topik:</strong> ${data.ticket.topic}</p>
+                                        <p><strong>Status:</strong> ${data.ticket.status}</p>
+                                        <p><strong>Tanggal Dibuat:</strong> ${data.ticket.created_at}</p>
+                                    `;
+                                    var ticketModal = new bootstrap.Modal(document.getElementById('ticketModal'));
+                                    ticketModal.show();
+                                } else {
+                                    alert('Ticket not found');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                        });
                     </script>
+
                     
                     <p class="mt-3 ml-5 bg-secondary-emphasis text-center">
                         If this is your first time contacting us or you've lost the ticket number, please    <a href="" class="text-center"> open a new ticket </a>
                     </p>
                 </div>
             </div> 
-            
-    
                  </div> 
-                 <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+
+
+                <!-- Tambahkan JS Bootstrap Bundle (termasuk Popper.js) --> 
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+                </script> 
+                <!-- Tambahkan JS jQuery --> 
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js">
                 </script>
-                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
-                </script>
-                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
-                </script>
+
                  <script src="scripts.js">
                 </script> 
             

@@ -11,9 +11,6 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
 
- {{-- javascript --}}
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 </head>
     <body>
         <div class="container-flex mt-3"> 
@@ -97,27 +94,23 @@
                     </div> 
                 </div>
             </div> 
-            
-    
                  </div> 
-                 <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+
+                 <!-- Tambahkan JS Bootstrap Bundle (termasuk Popper.js) --> 
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+                </script> 
+                <!-- Tambahkan JS jQuery --> 
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js">
                 </script>
-                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
-                </script>
-                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
-                </script>
+
                  <script src="scripts.js">
                 </script> 
             
     </body>
+
     <footer class="text-center mt-3"> 
         <p>&copy; 2024 Pusat Pengaduan TIK UNSRI - All rights reserved.</p>
         <p>powered by osTicket</p> 
     </footer>
-
-
-
-
-
-
+    
 </html>                                                       
